@@ -9,6 +9,11 @@ i = 0
 percentage = 0
 print('Combining: 0 %')
 
+
+emoji_to_change = [':-)', '=)', ':-(', '=(', ':-O', ':-o', '=O', '=o', ';-)', ';-(', '=D', ':-D', ':,(', ':-|', ':-/', ':-p', ':-P', '=p', '=P']
+emoji =           [':)',  ':)', ':(' , ':(', ':o' , ':o' , ':o', ':o', ';)' , ';(' , ':D', ':D' , ":'(", ':|' , ':/' , ':p' , ':p' , ':p', ':p']
+
+
 # combinin two data set
 for line in f:
     if(math.floor((i*100)/21051) > percentage):
@@ -66,6 +71,19 @@ for index, row in dataset.iterrows():
         else:
             name_tag_index_end += name_tag_index_start
         tweet_text = tweet_text[0:name_tag_index_start] + tweet_text[name_tag_index_end:]
+    
+    
+    # modifying emojies
+    for i,j in enumerate(emoji_to_change):
+        tweet_text = tweet_text.replace(j, emoji[i])
+            
+    
+    
+    
+    # lowercase
+    tweet_text = tweet_text.lower()
+    
+    
     dataset.at[index, 'content'] = tweet_text
     
     # label modification
