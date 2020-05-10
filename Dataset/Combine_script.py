@@ -1,5 +1,7 @@
 import pandas as pd
 import math
+from sklearn.utils import shuffle
+
 
 dataset = pd.read_csv("text_emotion.csv", encoding='utf-8')
 
@@ -11,7 +13,7 @@ print('Combining: 0 %')
 
 
 emoji_to_change = [':-)', '=)', ':-(', '=(', ':-O', ':-o', '=O', '=o', ';-)', ';-(', '=D', ':-D', ':,(', ':-|', ':-/', ':-p', ':-P', '=p', '=P']
-emoji =           [':)',  ':)', ':(' , ':(', ':o' , ':o' , ':o', ':o', ';)' , ';(' , ':D', ':D' , ":'(", ':|' , ':/' , ':p' , ':p' , ':p', ':p']
+#emoji =           [':)',  ':)', ':(' , ':(', ':o' , ':o' , ':o', ':o', ';)' , ';(' , ':D', ':D' , ":'(", ':|' , ':/' , ':p' , ':p' , ':p', ':p']
 
 
 # combinin two data set
@@ -74,10 +76,13 @@ for index, row in dataset.iterrows():
     
     
     # modifying emojies
-    for i,j in enumerate(emoji_to_change):
-        tweet_text = tweet_text.replace(j, emoji[i])
-            
+    #for i,j in enumerate(emoji_to_change):
+    #    tweet_text = tweet_text.replace(j, emoji[i])
     
+    
+    # removing emojies
+    for emoji_ in emoji_to_change:
+        tweet_text.replace(emoji_, '')
     
     
     # lowercase
@@ -88,7 +93,7 @@ for index, row in dataset.iterrows():
     
     # label modification
     label = dataset.loc[index].sentiment
-    if(label == 'fun' or label == 'joy'):
+    if(label == 'fun' or label == 'joy' or label == 'love'):
         dataset.at[index, 'sentiment'] = 'happiness'
     
     if(label == 'none' or label == 'empty'):
@@ -99,6 +104,41 @@ for index, row in dataset.iterrows():
         
     if(label == 'fear'):
         dataset.at[index, 'sentiment'] = 'worry'
+        
+    if(label == 'enthusiasm'):
+        dataset.at[index, 'sentiment'] = 'surprise'
+        
+    if(label == 'boredom'):
+        dataset.at[index, 'sentiment'] = 'sadness'
+        
+    #if(label == 'hate'):
+    #    dataset.at[index, 'sentiment'] = 'anger'
+
+
+
+# Balancing dataset
+
+labels = dataset['sentiment'].unique()
+
+label_datasets = {}
+
+max_lable_size = 9000
+min_lable_size = 7000
+
+for label in labels:
+    label_datasets[label] = dataset[dataset.sentiment==label]
+
+for label in labels:
+    if(label_datasets[label].shape[0] > max_lable_size):
+        label_datasets[label] = label_datasets[label].sample(n=max_lable_size, replace=False, random_state=52)
+    if(label_datasets[label].shape[0] < min_lable_size):
+        label_datasets[label] = label_datasets[label].sample(n=min_lable_size, replace=True, random_state=52)
+        
+
+balanced_dataset = pd.concat(list(label_datasets.values()), sort=False)
+balanced_dataset = shuffle(balanced_dataset)
     
-    
-dataset.to_csv('final_dataset.csv', index=False, header=True, encoding="utf-8")
+balanced_dataset.to_csv('final_dataset.csv', index=False, header=True, encoding="utf-8")
+
+
+print(balanced_dataset['sentiment'].value_counts())
