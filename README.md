@@ -157,6 +157,42 @@ The ensembled model is 11.23% more accurate than the XLNet model.
 The BERT model labels are 90.96% similar to ensembled model labels
 The ELMo model labels are 73.08% similar to ensembled model labels
 The XLNet model labels are 69.39% similar to ensembled model labels
+<br><br>
+
+### Predicting the tweets about coronavirus using ensembled model
+As it is previously mentioned, the tweet data about coronavirus has been gathered from Twitter, and there are 750,000 tweets in the dataset.
+<br><br>
+
+The expected result is to show how mass sentiment works during special cases like COVID-19 pandemic. Since there are 8 emotion classes labeled as ‘relief’, ‘neutral’, ‘worry’, ‘surprise’, ‘happiness’, ‘hate’, ‘sadness’, ‘anger’, the idea is to visualize how emotions change over a period of time in specific demography, in this case, the USA.
+<br><br>
+
+After ensembling, the accuracy has been slightly reduced compared to the best performing model, BERT by Jacob D. et al., Google’s researchers. For the sake of the experiment and the possibility that in future use-cases ensemble may perform better, the decision was to predict using the ensemble method.
+<br><br>
+
+Although the aggregated tweeter data over 15 days counts to 750,000 tweets but for some reason yet unknown to the group, BERT tends to drop the first instance and predict from the following ones, as a result, the predicted labels counts to 749,999 where each day has its fair share of the emotion labels. The following bar plot shows the progression of emotion over a period of time.
+<br><br>
+
+Results: https://youtu.be/Oe0PAKtvYf8
+<br><br>
+
+From the video, it is visible how in the beginning, May-01, mass USA population were worried and surprised. A slight percentage of population also felt relieved, hatred, and neutral. A significant amount of population were happy, angry, and sad at the same time.
+<br><br>
+
+In the progression it is visible that slowly the happy feeling is waning, so is surprise, on the other hand negative feeling, such as anger, sadness, hate is growing around May 22 when the COVID-19 situation was getting worse in the USA.
+<br><br>
+
+One interesting fact is that ‘relief’ emotion is decreasing gradually as May ends and except for a small spike in the middle around May 13 and again disappeared on May 31 and remained so until May 12.
+<br><br>
+
+### Conclusion
+The objective of this project was to demonstrate how the mass psyche acts in various situations. If interested individual wants, they can apply the model to predict different emotions based on any type of data. One can also take a reliable sample size and predict the happy index of population indirectly, after all we reflect our emotion through words most of the times. It can also be implemented by law enforcement agencies to check how the population behaves based on which they can act accordingly. In the future implementation, the classification layer can be modified for better result. A complete pipeline could be built so that user can easily upload the data in a web UI and directly get the result.
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
 
 
 
