@@ -171,7 +171,7 @@ After ensembling, the accuracy has been slightly reduced compared to the best pe
 <br>
 
 Although the aggregated tweeter data over 15 days counts to 750,000 tweets but for some reason yet unknown to the group, BERT tends to drop the first instance and predict from the following ones, as a result, the predicted labels counts to 749,999 where each day has its fair share of the emotion labels. The following bar plot shows the progression of emotion over a period of time.
-<br><br>
+<br>
 
 Results: https://youtu.be/Oe0PAKtvYf8
 <br><br>
