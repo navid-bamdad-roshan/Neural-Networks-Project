@@ -1,6 +1,13 @@
-# Predict Sentiments of Coronavirus Tweets from May 1st 2020 till June 12th 2020
+# Prediction the sentiments of Coronavirus tweets from May 1st 2020 till June 12th 2020 using neural networks
 
-### The project aims to train an ensemble classification model by fine-tuning three different models to predict the sentiments of tweets related to coronavirus. The models that are being used are the BERT embedding model, ELMo embedding model, and XLNet embedding model.
+Fist there is presentation of the project and then Description about implementation.
+<br>
+<br>
+<br>
+<br>
+## Presentation of the project
+
+#### The project aims to train an ensemble classification model by fine-tuning three different models to predict the sentiments of tweets related to coronavirus. The models that are being used are the BERT embedding model, ELMo embedding model, and XLNet embedding model.
 
 ### Authors
 Navid Bamdad Roshan     navid.bamdadroshan@gmail.com<br>
@@ -15,6 +22,46 @@ The dataset for training the model is composed of two different datasets. Those 
   <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig%20merged%201-2-3.png">
   <figcaption>Fig.1,2,3 - Sentimen distribution of train dataset.</figcaption>
 </figure>
+<br><br>
+
+### Collecting tweets about coronavirus
+The tweets related to coronavirus are gathered using tweeter API. The tweets are from the United States of America and between May 1, 2020, and June 12, 2020. 750,000 tweets have been collected from tweeter to be predicted by the proposed models.
+<br><br>
+
+### Pre-processing the collected tweets
+Pre-processing the data can be considered as the most important part of utilizing prediction models. Accordingly, the gathered tweets must be cleaned before being predicted by the models. As a result, the data is cleaned by removing links, mentions, and emoticons that are not understandable by embedding models. Also, all tweets have been lower-cased in the pre-processing stage.
+<br><br>
+
+### XLNet embedder
+XLNET is a bidirectional generalized autoregressive model. In a simple word, it means that the next token is dependent on all previous and next tokens. XLNET captures bi-directional context by “permutation language modeling.” It integrates the idea of auto-regressive models and bi-directional context modeling. To implement XLNET, the transformer is tweaked to look only at the hidden representation of tokens preceding the token to be predicted. XLNET tried to cover some of the problems that the BERT model has in some NLP tasks. <br>
+Fast-bert package is used to implement the XLNet network. The description of the fast-bert says “Fast-Bert is the deep learning library that allows developers and data scientists to train and deploy BERT and XLNet based models for natural language processing tasks beginning with Text Classification.”
+<br>
+The hyperparameters of the model are as follows.
+<br>
+Number of epochs = 20
+Batch size = 128
+Dropout rate = 0.1
+Optimizer type= lambLearning rate = 0.0001
+batch_size_per_gpu = 128
+max_seq_length= 16Learning rate = 0.0001
+pretrained model= xlnet-base-cased
+Optimizer = lamb
+Learning rate = 1e-4
+<br>
+The result of the model can be seen in Figure 3.3.
+
+
+<figure>
+  <img src="">
+  <figcaption>Fig.1,2,3 - Sentimen distribution of train dataset.</figcaption>
+</figure>
+<br><br>
+
+
+
+
+
+
 
 
 
