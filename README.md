@@ -101,7 +101,62 @@ And the training history of the model is presented in figure 6.1.
 </figure>
 <br><br>
 
+### BERT embedder
+One of the latest milestones in natural language processing is the development of BERT which is known as Bidirectional Encoder Representations from Transformers. BERT’s pivotal innovation is applying the bidirectional training of Transformer, a popular attention model, to language modeling. This is in different to previous innovations which only looked at a text sequence either from left to right (sequential) or combined left-to-right and right-to-left training. The detailed structure of the model is enormous and complicated, therefore a brief description of the model is given below.
+<br><br>
+BERT-Base, Uncased: 12-layers, 768-hidden, 12-attention-heads, 110M parameters
+<br><br>
+There is another BERT model available under Google’s open-source git reporsitory (hyperlink), BERT-Large which is large in size compared to BERT-Base. In order to decrease the computational complexity, a smaller model, BERT-Base, has been chosen for this specific task.
+<br><br>
 
+<figure>
+  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig7.png">
+  <figcaption>Figure.7. Use-case and hi-level architecture of BERT [Ref: mc.ai]</figcaption>
+</figure>
+<br><br>
+
+But the model does not itself give output in the desired format. One has to put another layer on top of BERT based on the specific use-case. The following figure illustrates various fields where BERT can be used.
+<br><br>
+
+#### How the pipeline works
+From the figure above it is visible that the middle layer is pretrained which is BERT-Base model in this specific use case. This means that the model is already trained on a corpus of data and it gives a list of vector of shape 768 as output. The process till this part is known as pretraining and the next part where the vector output is taken as input in the next layer (multiclass classification in this specific case of emotion classification) is known as fine tuning based on annotated data. The classifier trained of the annotated data is known as fine tuned model and the output this layer gives is in the shape of the desired output the user wants.
+<br><br>
+The scope of the project for this section is only to prepare the fine-tuned models which means the classifier layer will be trained on annotated dataset. The classifier layer houses softmax activation function.
+<br><br>
+
+<figure>
+  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig8.png">
+  <figcaption>Figure.8. Jay Alammar showed how the BERT (DistilBERT is a type of BERT model) takes tokenized values as input and assign the ids for each of the tokenized words. The output from BERT layer is a vecotor of size 768 for each id which later is propagated to the classification layer (Linear Regression here) and followed by an output.</figcaption>
+</figure>
+<br><br>
+
+For example, in the specific case, the dataset that will be used to train the classifier has 8 labels. So the classifier will give output of array of shape (1, 8) for one instance. The 8 columns will hold float value for different classes and the column that has the maximum score represents the label.
+<br><br>
+
+For training the classifier layer the following parameter has been used:
+<br><br>
+
+Number of epochs = 3 , Train Batch size = 32 , Predict Batch Size=8, Eval Batch size=8, Dropout rate = 0.1, Learning rate = 5e-5, max_seq_length=128, Current accuracy of the model after 3 epochs of: training_accuracy = 89% test_accuracy=65%
+<br><br>
+
+High Performance Computing (HPC) of University of Tartu was used to train the classification layer for BERT.
+<br><br>
+
+### Ensembling the models
+To ensemble the models, the predicted results of the models are aggregated. This aggregation is done by prioritizing the models based on their test accuracy. Accordingly, XLNet model gets the score of 55 because it has the test accuracy of around 55%, ELMo model gets the score of 60 because it has the test accuracy of around 60%, and BERT model gets the score of 65 because it has the test accuracy of around 65%. After predicting the tweets by each of the models, the results are aggregated based on the scores. In the end, the class that has the most score is chosen as the predicted label for that instance.
+<br><br>
+
+The accuracy of the ensemble model on test data is 65.25% which is slightly less than the accuracy of BERT model on test data. More detailed information about the result of ensembling can be found as follows.
+<br><br>
+
+The ensembled model is -0.23% more accurate than the BERT model.
+The ensembled model is 5.02% more accurate than the ELMo model.
+The ensembled model is 11.23% more accurate than the XLNet model.
+<br><br>
+
+The BERT model labels are 90.96% similar to ensembled model labels
+The ELMo model labels are 73.08% similar to ensembled model labels
+The XLNet model labels are 69.39% similar to ensembled model labels
 
 
 
