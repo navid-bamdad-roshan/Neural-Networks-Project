@@ -192,9 +192,8 @@ The objective of this project was to demonstrate how the mass psyche acts in var
 <br><br>
 <br><br>
 <br><br>
-<br><br>
-<br><br>
-<br><br>
+
+## Description about implementation 
 
 
 
