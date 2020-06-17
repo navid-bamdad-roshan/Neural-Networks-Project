@@ -193,7 +193,58 @@ The objective of this project was to demonstrate how the mass psyche acts in var
 <br><br>
 <br><br>
 
-# Description about implementation 
+# Description about running the project
+
+### Merging train datasets
+In the folder Dataset, Combine_script.py script is used to merge two datasets, merge some sentiments like fear and worry together, clean the data and balance the dataset.
+<br>
+Then Test_train_split.py script can be used to split the dataset to train data and test data.
+<br><br>
+
+### Collecting the tweets
+in the "Tweet collection" folder, "search 7days gather.py" script can be used to collect tweet from twitter using API. Twitter keys must be added to the script before running the script.
+<br>
+Then "Data cleaner.py" script can be used to clean the collected tweets.
+<br><br>
+
+### Fine-tuning the XLNet model
+
+@Behrad
+
+<br><br>
+
+### Prediction using the XLNet model
+
+@Behrad
+
+<br><br>
+
+### Fine-tuning the ELMo model
+
+
+
+<br><br>
+
+### Prediction using the ELMo model
+
+
+
+<br><br>
+
+### Fine-tuning the BERT model
+
+@Tanvir
+
+<br><br>
+
+### Prediction using the BERT model
+
+@Tanvir
+
+<br><br>
+
+
+
 
 
 
