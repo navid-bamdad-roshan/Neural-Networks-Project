@@ -220,15 +220,15 @@ Then "Data cleaner.py" script can be used to clean the collected tweets.
 <br><br>
 
 ### Fine-tuning the ELMo model
-
-
-
+Inside the ELMo folder, "Train ELMo fine-tune model.ipynb" notebook can be used to fine tune the ELMo model for this project. Network structure and the hyperprameters can be modified in the notebook. 
+<br>
+The network is trained for 25 epocks and the trained weights are in the "elmo-0-epoch-25.h5" file. 
+<br>
+"logs-0.csv" file contains the training history of the network.
 <br><br>
 
 ### Prediction using the ELMo model
-
-
-
+The weights in the "elmo-0-epoch-25.h5" file is used by "Predict ELMo fine-tuned model.ipynb" notebook to create the neural network and predict the sentiments of texts using ELMo embedder and fine-tuned layers.
 <br><br>
 
 ### Fine-tuning the BERT model
@@ -243,13 +243,9 @@ Then "Data cleaner.py" script can be used to clean the collected tweets.
 
 <br><br>
 
+### Ensembling the results of three models
+Inside the "Ensembling" folder, "Ensemble test data.ipynb" notebook can be used to ensemble the test data prediction results of three models and evaluate the ensemble model on test data. This notebook also reports some more information about ensembled model and compare it with the each of the seperate models.
+<br>
+"Ensemble collected tweets.ipynb" notebook can be used to ensemble the prediction results of collected data that are predicted by above mentioned three models and get the prediction result of the ensemble model.
 
 
-
-
-
-
-### Dataset
-The data that is used for training consists of two different datasets that got combined and cleaned.
-For cleaning the data, the url addresses and name tags (@Name) are removed.
-Also, some of the labels are merged together. Merged class lables are as follow. {fun, joy, happiness} as happiness - {empty, neutral} as neutral - {fear, worry} as worry - {disgust, hate} as hate.
