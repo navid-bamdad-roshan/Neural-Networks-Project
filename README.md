@@ -209,13 +209,13 @@ Then "Data cleaner.py" script can be used to clean the collected tweets.
 
 ### Fine-tuning the XLNet model
 
-@Behrad
+
 
 <br><br>
 
 ### Prediction using the XLNet model
 
-@Behrad
+
 
 <br><br>
 
@@ -233,13 +233,13 @@ The weights in the "elmo-0-epoch-25.h5" file is used by "Predict ELMo fine-tuned
 
 ### Fine-tuning the BERT model
 
-@Tanvir
+
 
 <br><br>
 
 ### Prediction using the BERT model
 
-@Tanvir
+
 
 <br><br>
 
