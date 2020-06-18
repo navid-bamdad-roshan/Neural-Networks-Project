@@ -19,7 +19,7 @@ Behrad Moeini           behrad@ut.ee<br>
 The dataset for training the model is composed of two different datasets. Those two datasets got merged together to have more data to train the model. However, before training the model using the dataset, the dataset has been modified. One of the modifications was to delete links, mentions, emoticons, and etc. In addition, the distribution of the tweets over different sentiments is not uniform, also there are too many sentiments in the dataset as it can be seen in figure 1. This unbalanced dataset hurts accuracy, so there should be a modification in the dataset to overcome. The issue is solved by two steps. The first step was to merge some of the sentiments which are related together. For instance, “worry” and “fear” or “disgust” and “hate” can be merged together due to their close meaning. By combining some of the labels, it got better but not good enough, the sentiment distribution of this stage is presented in figure 2. Therefore, in the next step, the dataset is balanced by over/under-sampling instances of each class to approximate the uniform distribution. The result is shown in figure 3. To conclude, the training dataset has 64,000 instances and 8 classes namely neutral, sadness, surprise, worry, happiness, hate, relief, and anger.
 <br><br>
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig%20merged%201-2-3.png">
+  <img src="Presentation/fig merged 1-2-3.png">
   <figcaption>Fig.1,2,3 - Sentimen distribution of train dataset.</figcaption>
 </figure>
 <br><br>
