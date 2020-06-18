@@ -52,7 +52,7 @@ The result of the model can be seen in Figure 3.3.
 
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig4.png">
+  <img src="Presentation/fig4.png">
   <figcaption>Fig.4</figcaption>
 </figure>
 <br><br>
@@ -62,13 +62,13 @@ The next embedding model that has been used is the ELMo model. This model gets a
 <br><br>
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig5-1.png">
+  <img src="Presentation/fig5-1.png">
   <figcaption>Fig.5.1</figcaption>
 </figure>
 <br><br>
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig5-2.png">
+  <img src="Presentation/fig5-2.png">
   <figcaption>Fig.5.2</figcaption>
 </figure>
 <br><br>
@@ -90,13 +90,13 @@ And the training history of the model is presented in figure 6.1.
 <br><br>
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig6-1.png">
+  <img src="Presentation/fig6-1.png">
   <figcaption>Figure.6.1 Training history of ELMo model fine-tuning</figcaption>
 </figure>
 <br><br>
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig6-2.png">
+  <img src="Presentation/fig6-2.png">
   <figcaption>Figure.6.2 ELMo model accuracy</figcaption>
 </figure>
 <br><br>
@@ -109,7 +109,7 @@ BERT-Base, Uncased: 12-layers, 768-hidden, 12-attention-heads, 110M parameters
 There is another BERT model available under Google’s open-source git reporsitory (hyperlink), BERT-Large which is large in size compared to BERT-Base. In order to decrease the computational complexity, a smaller model, BERT-Base, has been chosen for this specific task.
 <br><br>
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig7.png">
+  <img src="Presentation/fig7.png">
   <figcaption>Figure.7. Use-case and hi-level architecture of BERT [Ref: mc.ai]</figcaption>
 </figure>
 <br><br>
@@ -126,7 +126,7 @@ The scope of the project for this section is only to prepare the fine-tuned mode
 <br><br>
 
 <figure>
-  <img src="https://github.com/navid-bamdad-roshan/Neural-Networks-Project/blob/master/Presentation/fig8.png">
+  <img src="Presentation/fig8.png">
   <figcaption>Figure.8. Jay Alammar showed how the BERT (DistilBERT is a type of BERT model) takes tokenized values as input and assign the ids for each of the tokenized words. The output from BERT layer is a vecotor of size 768 for each id which later is propagated to the classification layer (Linear Regression here) and followed by an output.</figcaption>
 </figure>
 <br><br>
