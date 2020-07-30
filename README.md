@@ -1,6 +1,6 @@
 # Prediction the sentiments of Coronavirus tweets from May 1st 2020 till June 12th 2020 using neural networks
 
-Fist there is presentation of the project and then Description about implementation.
+At first there is presentation of the project and then Description about implementation.
 <br>
 <br>
 <br>
@@ -10,13 +10,13 @@ Fist there is presentation of the project and then Description about implementat
 #### The project aims to train an ensemble classification model by fine-tuning three different models to predict the sentiments of tweets related to coronavirus. The models that are being used are the BERT embedding model, ELMo embedding model, and XLNet embedding model.
 
 ### Authors
+Behrad Moeini           behrad@ut.ee<br>
 Navid Bamdad Roshan     navid.bamdadroshan@gmail.com<br>
 Hasan Mohammed Tanvir   hasantanvir79@gmail.com<br>
-Behrad Moeini           behrad@ut.ee<br>
 
 
 ### Training dataset
-The dataset for training the model is composed of two different datasets. Those two datasets got merged together to have more data to train the model. However, before training the model using the dataset, the dataset has been modified. One of the modifications was to delete links, mentions, emoticons, and etc. In addition, the distribution of the tweets over different sentiments is not uniform, also there are too many sentiments in the dataset as it can be seen in figure 1. This unbalanced dataset hurts accuracy, so there should be a modification in the dataset to overcome. The issue is solved by two steps. The first step was to merge some of the sentiments which are related together. For instance, “worry” and “fear” or “disgust” and “hate” can be merged together due to their close meaning. By combining some of the labels, it got better but not good enough, the sentiment distribution of this stage is presented in figure 2. Therefore, in the next step, the dataset is balanced by over/under-sampling instances of each class to approximate the uniform distribution. The result is shown in figure 3. To conclude, the training dataset has 64,000 instances and 8 classes namely neutral, sadness, surprise, worry, happiness, hate, relief, and anger.
+The dataset for training the model is composed of two different datasets. Those two datasets got merged to have more data to train the model. However, before training the model using the dataset, the dataset has been modified. One of the modifications was to delete links, mentions, emoticons. Also, the distribution of the tweets over different sentiments is not uniform. Also, there are too many sentiments in the dataset, as can be seen in figure 1. This unbalanced dataset hurts accuracy, so there should be a modification in the dataset to overcome. Two steps solve the issue. The first step was to merge some of the sentiments which are related together. For instance, “worry” and “fear” or “disgust” and “hate” can be merged due to their close meaning. Combining some of the labels got better but not good enough; the sentiment distribution of this stage is presented in figure 2. Then, in the next step, the dataset is balanced by over/under-sampling instances of each class to approximate the uniform distribution. The result is shown in figure 3. To conclude, the training dataset has 64,000 instances and eight classes, namely neutral, sadness, surprise, worry, happiness, hate, relief, and anger.
 <br><br>
 <figure>
   <img src="Presentation/fig merged 1-2-3.png">
@@ -33,8 +33,8 @@ Pre-processing the data can be considered as the most important part of utilizin
 <br><br>
 
 ### XLNet embedder
-XLNET is a bidirectional generalized autoregressive model. In a simple word, it means that the next token is dependent on all previous and next tokens. XLNET captures bi-directional context by “permutation language modeling.” It integrates the idea of auto-regressive models and bi-directional context modeling. To implement XLNET, the transformer is tweaked to look only at the hidden representation of tokens preceding the token to be predicted. XLNET tried to cover some of the problems that the BERT model has in some NLP tasks. <br>
-Fast-bert package is used to implement the XLNet network. The description of the fast-bert says “Fast-Bert is the deep learning library that allows developers and data scientists to train and deploy BERT and XLNet based models for natural language processing tasks beginning with Text Classification.”
+XLNET is a bidirectional generalized autoregressive model. In a simple word, it means that the next token is dependent on all previous tokens. It integrates the idea of auto-regressive models and bi-directional context modeling. In the process of implementing XLNET, <br>
+The fast-bert package is used to implement the XLNet network. The description of the fast-bert says, “Fast-Bert is the deep learning library that allows developers and data scientists to train and deploy BERT and XLNet based models for natural language processing tasks beginning with Text Classification.”
 <br>
 The hyperparameters of the model are as follows.
 <br>
