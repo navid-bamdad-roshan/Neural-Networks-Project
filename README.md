@@ -208,13 +208,13 @@ Then "Data cleaner.py" script can be used to clean the collected tweets.
 <br><br>
 
 ### Fine-tuning the XLNet model
-
+XLNet fine-tuning has been done manually so far and we are planning to fine-tune it using the fast-bert package as well.
 
 
 <br><br>
 
 ### Prediction using the XLNet model
-
+The "xlnet.ipynb" and the file expected to predict should be in the same folder. Also, the tweet text column should named as text and the sentiment column should be named as label.
 
 
 <br><br>
